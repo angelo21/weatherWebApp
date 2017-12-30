@@ -23,13 +23,13 @@ if ("geolocation" in navigator) {
     const tempFahrenheit = Math.ceil(data.main.temp);
     const tempCelcius = Math.floor((tempFahrenheit - 32) / 1.8);
     const skyDescription = data.weather[0].description;
+    const capitalSkyDescription = skyDescription.charAt(0).toUpperCase() + skyDescription.slice(1);
     const country = data.sys.country;
     const city = data.name;
     const id = data.weather[0].id;
 
-
     countryAndCity.innerHTML = country + "," + " " + city
-    weatherDescription.innerHTML = skyDescription;
+    weatherDescription.innerHTML = capitalSkyDescription;
     //set temp to fahrenheit by default
     celciusOrFahrenheit.textContent = "F";
     current_temp.innerHTML = tempFahrenheit + "&deg;" + " ";
